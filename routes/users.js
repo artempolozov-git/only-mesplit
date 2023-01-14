@@ -46,7 +46,7 @@ router.post('/split', function(req, res, next) {
       })
       .catch((response) => {
         console.log(response);
-        res.status(400).send(response.error);
+        res.status(404).send(response.error);
       });
 });
 
