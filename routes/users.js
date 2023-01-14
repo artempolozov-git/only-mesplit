@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/test', function(req, res, next) {
+router.post('/split', function(req, res, next) {
   let data = {
     "order_meta": {
       "consumer_meta": {
