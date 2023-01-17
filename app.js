@@ -14,8 +14,8 @@ const cors = require('cors');
 };*/
 var whitelist = ['https://only-mesplit.ru', 'http://localhost:8080/'];
 var corsOptions = {
-    origin: false,
-    credentials: true,
+    origin: true,
+    credentials: false,
     exposedHeaders: ['set-cookie']
 };
 
