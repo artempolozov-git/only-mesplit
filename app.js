@@ -12,7 +12,7 @@ const cors = require('cors');
     credentials: true,
     exposedHeaders: ['set-cookie']
 };*/
-var whitelist = ['https://only-mesplit.ru/']
+var whitelist = ['https://only-mesplit.ru'];
 var corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
