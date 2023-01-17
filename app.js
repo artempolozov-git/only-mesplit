@@ -12,7 +12,7 @@ const cors = require('cors');
     credentials: true,
     exposedHeaders: ['set-cookie']
 };*/
-var whitelist = ['https://only-mesplit.ru'];
+var whitelist = ['https://only-mesplit.ru', 'http://localhost:8080/'];
 var corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
@@ -20,7 +20,9 @@ var corsOptions = {
         } else {
             callback(new Error('Not allowed by CORS'))
         }
-    }
+    },
+    credentials: true,
+    exposedHeaders: ['set-cookie']
 };
 
 var app = express();
