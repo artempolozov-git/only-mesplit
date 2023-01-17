@@ -27,7 +27,7 @@ var whitelist = ['https://only-mesplit.ru', 'http://localhost:8080/'];
         }
     }
 }*/
-const corsOptions = { credentials: true, origin: ["https://only-mesplit.ru", /\.only-mesplit\.ru$/] }
+const corsOptions = { credentials: true, origin: ["https://only-mesplit.ru/", /\.only-mesplit\.ru$/] };
 
 var app = express();
 app.use(cors(corsOptions));
