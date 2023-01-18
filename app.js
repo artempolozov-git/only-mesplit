@@ -31,13 +31,18 @@ const corsOptions = { credentials: true, origin: ["https://only-mesplit.ru/", /\
 
 var app = express();
 
-app.all('*', function (req, res, next) {
-    res.header('Access-Control-Allow-Credentials', true);
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+app.use((req, res, next) => {
+    const origin = req.get('origin') || '*';
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
+
+    if ('OPTIONS' === req.method) {
+        return res.sendStatus(200);
+    }
     next();
-});
+})
 
 app.use(cors());
 app.use(logger('dev'));
